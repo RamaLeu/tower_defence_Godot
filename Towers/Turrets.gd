@@ -24,7 +24,14 @@ func _physics_process(delta):
 			fire()
 	else:
 		enemy = null
+		
+		
 	if enemy_array.size() == 0 and category == "Minigun" and detected_before:
+		var minigun_speed = 1.0
+		for n in 6.0:
+			get_node("Turret").set_speed_scale(minigun_speed)
+			yield(get_tree().create_timer(0.01), "timeout")
+			minigun_speed -=0.5
 		yield(get_tree().create_timer(1.0), "timeout")
 		get_node("Turret").stop()
 		detected_before = false
@@ -52,15 +59,21 @@ func fire():
 	ready = true
 
 func fire_gun():
-	get_node("AnimationPlayer").play("Fire")
+	play_shooting_animation()
 	
 func fire_missile():
-	get_node("AnimationPlayer").play("Fire")
+	play_shooting_animation()
 
 func fire_minigun():
-	get_node("AnimationPlayer").play("Fire")
+	play_shooting_animation()
 	get_node("Turret").play("default")
 
+
+func play_shooting_animation():
+	get_node("AnimationPlayer").play("Fire")
+	
+	
+	
 func turn():
 	turret.look_at(enemy.position)
 
