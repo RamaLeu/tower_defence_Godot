@@ -13,7 +13,7 @@ var build_valid = false
 var build_tile
 var build_location
 var build_type
-
+var map
 var current_wave = 0
 var enemies_in_wave = 0
 
@@ -22,7 +22,8 @@ var money_count = 152
 
 func _ready():
 	money_node.text = str(money_count)
-	map_node = get_node("Map1")
+	map_node = load("res://Maps/"+map+".tscn").instance()
+	add_child(map_node)
 	PauseScreen.connect("pause_button", self, 'on_pause_button_pressed')
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):

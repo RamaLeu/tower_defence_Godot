@@ -6,14 +6,22 @@ func _ready():
 	
 func on_new_game_pressed():
 	get_node("MainMenu").queue_free()
-	var game_scene = load("res://Scenes/MainScenes/GameScene.tscn").instance()
-	game_scene.connect("game_finished", self, 'unload_game')
-	add_child(game_scene)
+	var map_select = load("res://UI/Map_select.tscn").instance()
+	map_select.connect("pick_map", self, 'pick_map')
+	add_child(map_select)
 
 func on_quit_pressed():
 	get_tree().quit()
 
 
+
+func pick_map(map):
+	get_node("Map_select").queue_free()
+	var game_scene = load("res://Scenes/MainScenes/GameScene.tscn").instance()
+	game_scene.map = map
+	game_scene.connect("game_finished", self, 'unload_game')
+	add_child(game_scene)
+	
 func unload_game(result):
 	if result == "win" or result == "quit":
 		get_node("GameScene").queue_free()
