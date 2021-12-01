@@ -26,7 +26,7 @@ var tower_data = {
 
 var wave_data = {
 	1:{
-		"blue": 1,
+		"blue": 5,
 		"path": 1
 	},
 	2:{

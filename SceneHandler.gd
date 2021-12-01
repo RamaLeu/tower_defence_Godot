@@ -21,7 +21,7 @@ func unload_game(result):
 		add_child(main_menu)
 		load_main_menu()
 		Engine.set_time_scale(1.0)
-	elif result == "loss":
+	elif result == "lost":
 		get_node("GameScene").queue_free()
 		var game_over = load("res://UI/Game_over.tscn").instance()
 		add_child(game_over)
