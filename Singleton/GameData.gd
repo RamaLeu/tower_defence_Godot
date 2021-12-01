@@ -21,6 +21,13 @@ var tower_data = {
 		"range" : 400,
 		"category": "Missile",
 		"price": 150
+	},
+	"MinigunT1": {
+		"damage": 10,
+		"rof" : 0.2,
+		"range" : 200,
+		"category": "Minigun",
+		"price": 150
 	}
 }
 
