@@ -235,6 +235,83 @@ margin_right = 1024.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 70, 0 )
 
+[node name="EnemyBar" type="ColorRect" parent="UI/HUD"]
+pause_mode = 1
+self_modulate = Color( 0, 0, 0, 0.470588 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 1024.0
+rect_min_size = Vector2( 0, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="H" type="HBoxContainer" parent="UI/HUD/EnemyBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symbol" type="Label" parent="UI/HUD/EnemyBar/H"]
+margin_right = 120.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 120, 60 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.705882 )
+custom_fonts/font = SubResource( 1 )
+text = "$"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="Label" parent="UI/HUD/EnemyBar/H"]
+margin_left = 124.0
+margin_right = 229.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 105, 60 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.705882 )
+custom_fonts/font = ExtResource( 12 )
+text = "100"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/HUD/EnemyBar/H"]
+margin_left = 486.0
+margin_right = 546.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 10
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Hp" type="TextureProgress" parent="UI/HUD/EnemyBar/H"]
+margin_left = 550.0
+margin_top = 15.0
+margin_right = 950.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 400, 30 )
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 10 )
+tint_under = Color( 0.270588, 0.270588, 0.270588, 1 )
+tint_progress = Color( 0, 1, 0.0196078, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="UI/HUD/EnemyBar/H/Hp"]
+
+[node name="Control" type="Control" parent="UI/HUD/EnemyBar/H"]
+margin_left = 954.0
+margin_right = 1024.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 70, 0 )
+
 [node name="PauseScreen" parent="UI" instance=ExtResource( 14 )]
 pause_mode = 2
 visible = false

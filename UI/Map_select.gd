@@ -20,3 +20,7 @@ func _on_Map1_pressed():
 
 func _on_Map2_pressed():
 	emit_signal("pick_map", "Map2")
+
+
+func _on_Map3_pressed():
+	emit_signal("pick_map", "Map3")

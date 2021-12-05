@@ -1,6 +1,7 @@
 extends PathFollow2D
 
 signal base_damage(damage)
+signal enemy_base_damage(damage)
 signal tank_destroyed()
 
 
@@ -9,6 +10,7 @@ var hp = 50
 var base_damage = 21
 var damage_taken = []
 var deathSwitch = false
+var enemy = false
 
 onready var health_bar = $Health
 onready var impact_area = get_node("Impact")
@@ -21,7 +23,7 @@ func _ready():
 
 func _physics_process(delta):
 	if unit_offset >= 0.99:
-		emit_signal("base_damage", base_damage)
+		emit_signal("base_damage", base_damage, enemy)
 		queue_free()
 		die_in_wave()
 	move(delta)

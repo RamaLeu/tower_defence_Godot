@@ -8,6 +8,9 @@ onready var pause_screen = $PauseScreen
 var pause_screened = false
 var game_paused_pressed = false
 
+onready var enemy_hp_bar = get_node("HUD/EnemyBar/H/Hp")
+onready var enemy_hp_bar_tween = get_node("HUD/EnemyBar/H/Hp/Tween")
+
 
 
 func set_tower_preview(tower_type, mouse_position):
@@ -79,16 +82,25 @@ func _on_SpeedUp_pressed():
 		Engine.set_time_scale(2.0)
 
 
-func update_health_bar(base_health):
-	print("oof")
-	hp_bar_tween.interpolate_property(hp_bar, 'value', hp_bar.value, base_health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	hp_bar_tween.start()
-	if base_health >=60:
-		hp_bar.set_tint_progress('3cc510')
-	elif base_health <= 60 and base_health >= 25:
-		hp_bar.set_tint_progress('e1be32')
+func update_health_bar(base_health, side):
+	if side:
+		hp_bar_tween.interpolate_property(hp_bar, 'value', hp_bar.value, base_health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		hp_bar_tween.start()
+		if base_health >=60:
+			hp_bar.set_tint_progress('3cc510')
+		elif base_health <= 60 and base_health >= 25:
+			hp_bar.set_tint_progress('e1be32')
+		else:
+			hp_bar.set_tint_progress('e11e1e')
 	else:
-		hp_bar.set_tint_progress('e11e1e')
+		enemy_hp_bar_tween.interpolate_property(enemy_hp_bar, 'value', enemy_hp_bar.value, base_health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		enemy_hp_bar_tween.start()
+		if base_health >=60:
+			enemy_hp_bar.set_tint_progress('3cc510')
+		elif base_health <= 60 and base_health >= 25:
+			enemy_hp_bar.set_tint_progress('e1be32')
+		else:
+			enemy_hp_bar.set_tint_progress('e11e1e')
 
 
 func on_wave_end():

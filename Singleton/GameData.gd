@@ -34,26 +34,32 @@ var tower_data = {
 var wave_data = {
 	1:{
 		"blue": 5,
-		"path": 1
+		"path": 1,
+		"enemy": true
 	},
 	2:{
-		"blue": 1,
-		"path": 2
+		"blue": 5,
+		"path": 2,
+		"enemy": false
 	},
 	3:{
 		"blue": 1,
-		"path": 2
+		"path": 2,
+		"enemy": false
 	},
 	4:{
 		"blue": 1,
 		"path": 1,
+		"enemy": true
 	},
 	5:{
 		"blue": 1,
-		"path": 0
+		"path": 0,
+		"enemy": false
 	},
 	6:{
 		"blue": 1,
-		"path": 0
+		"path": 0,
+		"enemy": false
 	}
 }

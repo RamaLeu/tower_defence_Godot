@@ -18,6 +18,7 @@ var current_wave = 0
 var enemies_in_wave = 0
 
 var base_health = 100
+var enemy_health = 100
 var money_count = 152
 
 func _ready():
@@ -70,7 +71,7 @@ func retrieve_wave_data():
 	var wave_data = []
 	if current_wave in GameData.wave_data:
 		for i in GameData.wave_data[current_wave]["blue"]:
-			wave_data.append(["BlueTank", 0.7, GameData.wave_data[current_wave]["path"]])
+			wave_data.append(["BlueTank", 0.7, GameData.wave_data[current_wave]["path"], GameData.wave_data[current_wave]["enemy"]])
 		enemies_in_wave = wave_data.size()
 		return wave_data
 	else:
@@ -79,7 +80,9 @@ func retrieve_wave_data():
 func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Enemy/" + i[0] + '.tscn').instance()
+		new_enemy.enemy = i[3]
 		new_enemy.connect("base_damage", self, 'on_base_damage')
+		new_enemy.connect("enemy_base_damage", self, 'on_base_damage')
 		new_enemy.connect("tank_destroyed", self, "tank_destroyed")
 		randomize()
 		if (i[2] == 1):
@@ -147,12 +150,20 @@ func verify_and_build():
 		map_node.get_node("Turrets").add_child(new_tower, true)
 		map_node.get_node("TowerExclusion").set_cellv(build_tile, 5)
 
-func on_base_damage(damage):
-	base_health -= damage
-	if base_health <= 0:
-		emit_signal("game_finished", "lost")
+func on_base_damage(damage, enemy_status):
+	print("ENEMY STATUS ", enemy_status)
+	if enemy_status:
+		base_health -= damage
+		if base_health <= 0:
+			emit_signal("game_finished", "lost")
+		else:
+			get_node("UI").update_health_bar(base_health, true)
 	else:
-		get_node("UI").update_health_bar(base_health)
+		enemy_health -= damage
+		if enemy_health <= 0:
+			emit_signal("game_finished", "win")
+		else:
+			get_node("UI").update_health_bar(enemy_health, false)
 
 
 

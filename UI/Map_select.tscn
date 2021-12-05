@@ -113,3 +113,4 @@ expand = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Map1" to="." method="_on_Map1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Map2" to="." method="_on_Map2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Map3" to="." method="_on_Map3_pressed"]
