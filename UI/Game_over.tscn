@@ -42,10 +42,10 @@ __meta__ = {
 }
 
 [node name="VB" type="VBoxContainer" parent="M"]
-margin_left = 252.0
-margin_top = 177.0
-margin_right = 772.0
-margin_bottom = 550.0
+margin_left = 700.0
+margin_top = 657.0
+margin_right = 1220.0
+margin_bottom = 1030.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 8

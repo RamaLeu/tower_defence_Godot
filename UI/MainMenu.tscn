@@ -6,8 +6,8 @@
 [ext_resource path="res://Fonts/kfn_40.tres" type="DynamicFont" id=4]
 
 [node name="MainMenu" type="Control"]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,10 +30,10 @@ __meta__ = {
 }
 
 [node name="VB" type="VBoxContainer" parent="M"]
-margin_left = 474.0
+margin_left = 1370.0
 margin_top = 50.0
-margin_right = 974.0
-margin_bottom = 550.0
+margin_right = 1870.0
+margin_bottom = 1030.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 8
 custom_constants/separation = 35
@@ -41,9 +41,9 @@ alignment = 1
 
 [node name="NewGame" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 30.0
+margin_top = 270.0
 margin_right = 425.0
-margin_bottom = 105.0
+margin_bottom = 345.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
@@ -64,9 +64,9 @@ __meta__ = {
 
 [node name="Settings" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 140.0
+margin_top = 380.0
 margin_right = 425.0
-margin_bottom = 215.0
+margin_bottom = 455.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
@@ -87,9 +87,9 @@ __meta__ = {
 
 [node name="About" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 250.0
+margin_top = 490.0
 margin_right = 425.0
-margin_bottom = 325.0
+margin_bottom = 565.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
@@ -109,15 +109,15 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="M/VB"]
-margin_top = 360.0
+margin_top = 600.0
 margin_right = 500.0
-margin_bottom = 360.0
+margin_bottom = 600.0
 
 [node name="Quit" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 395.0
+margin_top = 635.0
 margin_right = 425.0
-margin_bottom = 470.0
+margin_bottom = 710.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )

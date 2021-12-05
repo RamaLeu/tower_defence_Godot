@@ -7,8 +7,8 @@
 [ext_resource path="res://UI/PauseScreen.gd" type="Script" id=5]
 
 [node name="PauseScreen" type="Control"]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,10 +36,10 @@ __meta__ = {
 }
 
 [node name="VB" type="VBoxContainer" parent="M"]
-margin_left = 474.0
+margin_left = 1370.0
 margin_top = 50.0
-margin_right = 974.0
-margin_bottom = 550.0
+margin_right = 1870.0
+margin_bottom = 1030.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 8
 custom_constants/separation = 35
@@ -47,9 +47,9 @@ alignment = 1
 
 [node name="Continue" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 85.0
+margin_top = 325.0
 margin_right = 425.0
-margin_bottom = 160.0
+margin_bottom = 400.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 4 )
@@ -70,9 +70,9 @@ __meta__ = {
 
 [node name="Settings" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 195.0
+margin_top = 435.0
 margin_right = 425.0
-margin_bottom = 270.0
+margin_bottom = 510.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 4 )
@@ -92,15 +92,15 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="M/VB"]
-margin_top = 305.0
+margin_top = 545.0
 margin_right = 500.0
-margin_bottom = 305.0
+margin_bottom = 545.0
 
 [node name="Quit" type="TextureButton" parent="M/VB"]
 margin_left = 75.0
-margin_top = 340.0
+margin_top = 580.0
 margin_right = 425.0
-margin_bottom = 415.0
+margin_bottom = 655.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 4 )
